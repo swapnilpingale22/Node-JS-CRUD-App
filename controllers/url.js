@@ -6,7 +6,10 @@ const URL = require('../models/url')
 
 async function handleGenerateNewShortUrl(req, res) {
     const body = req.body;
-    if (!body.url) return res.status(400).json({ error: "url is required" });
+    if (!body.url) return res.render("home", {
+        error: "URL cannot be empty"
+    })
+    //  res.status(400).json({ error: "url is required" });
 
     const shortID = shortid();
 
@@ -16,7 +19,10 @@ async function handleGenerateNewShortUrl(req, res) {
         visitHistory: [],
     });
 
-    return res.json({ id: shortID });
+    return res.render("home", {
+        id: shortID,
+    })
+    // return res.json({ id: shortID });
 }
 
 async function handleGetAnalytics(req, res) {
