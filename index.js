@@ -28,11 +28,11 @@ app.set("views", path.resolve("./views"));
 const port = process.env.PORT;
 
 //local DB
-connectToMongoDB("mongodb://127.0.0.1:27017/short-url")
-    .then(() => console.log('MongoDB connected'));
-
-// connectToMongoDB("mongodb+srv://swapnil:cws123@cluster0.ys61ljb.mongodb.net/?retryWrites=true&w=majority")
+// connectToMongoDB("mongodb://127.0.0.1:27017/short-url")
 //     .then(() => console.log('MongoDB connected'));
+
+connectToMongoDB("mongodb+srv://swapnil:cws123@cluster0.ys61ljb.mongodb.net/?retryWrites=true&w=majority")
+    .then(() => console.log('MongoDB connected'));
 
 //middlewares
 app.use(express.json());
